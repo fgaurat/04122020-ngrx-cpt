@@ -1,29 +1,16 @@
 import { createReducer, on } from '@ngrx/store';
+import { loadedTodo } from './todo.actions';
 
-export const initialState = [
-  {
-    "userId": 2,
-    "id": 28,
-    "title": "nesciunt totam sit blanditiis sit",
-    "completed": false,
-    "dueDate": 1582620058000
-  },
-  {
-    "title": "fdsfsdfds",
-    "completed": true,
-    "dueDate": 1607122800000,
-    "id": 29
-  },
-  {
-    "title": "fsdfsds",
-    "dueDate": 1607122800000,
-    "completed": false,
-    "id": 30
-  }
-];
+export const initialState = [];
 
 const _todoReducer = createReducer(
-  initialState
+  initialState,
+  on(loadedTodo , (state,action) => {
+    console.log(state)
+    console.log(action)
+    const newState = action.todos
+    return newState
+  })
 );
 
 export function todoReducer(state, action) {

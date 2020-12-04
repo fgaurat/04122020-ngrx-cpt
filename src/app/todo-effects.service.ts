@@ -12,7 +12,7 @@ export class TodoEffectsService {
     () => this.actions$.pipe(
       ofType('[Todo Component] load'),
       switchMap( () => this.todoService.getTodos()),
-      map(todos => loadedTodo(todos))
+      map(todos => loadedTodo({todos}))
     )
   );
 
