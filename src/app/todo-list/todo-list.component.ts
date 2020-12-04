@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { loadTodo } from '../todo.actions';
 
 @Component({
   selector: 'app-todo-list',
@@ -16,6 +17,7 @@ export class TodoListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.store.dispatch(loadTodo())
   }
 
 }

@@ -12,6 +12,7 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 import { todoReducer } from './todo.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { TodoEffectsService } from './todo-effects.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { TodoEffectsService } from './todo-effects.service';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     StoreModule.forRoot({count: counterReducer,theTodos:todoReducer }, {}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([TodoEffectsService])
